@@ -5,7 +5,7 @@ const csv = require('csv-parser');
 const results = [];
 let lineCount = 0;
 
-fs.createReadStream(path.join(__dirname, 'BD-Embalses.csv'))
+fs.createReadStream(path.join(__dirname, 'csv-json-embalses/BD-Embalses.csv'))
   .pipe(csv({ separator: ',', mapValues: ({ value }) => value.trim() }))
   .on('data', (data) => {
     lineCount++;
@@ -17,7 +17,7 @@ fs.createReadStream(path.join(__dirname, 'BD-Embalses.csv'))
     results.push(data);
   })
   .on('end', () => {
-    fs.writeFileSync('embalses.json', JSON.stringify(results, null, 2), 'utf-8');
+    fs.writeFileSync('csv-json-embalses/embalses.json', JSON.stringify(results, null, 2), 'utf-8');
     console.log(`✅ File: embalses.json sucessfully created`);
     console.log(`📊 ${lineCount} processed lines`);
   });

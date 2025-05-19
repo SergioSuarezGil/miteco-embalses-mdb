@@ -1,5 +1,5 @@
 node_modules
+bd-embalses
+csv-json-embalses
 .vscode/settings.json
 .DS_Store
-embalses.json
-BD-Embalses.csv
